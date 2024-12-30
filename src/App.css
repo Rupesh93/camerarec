@@ -1,38 +1,69 @@
 .App {
   text-align: center;
+  position: relative;
+  border: 2px solid black;
+  height: 98vh;
+  width: 98vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cameraBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 96vh;
+  width: 98vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.textBox {
+  background: transparent;
+  height: 96vh;
+  width: 50vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
 }
+.innertextBox{
+  position: relative;
+  height: 100%;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.textBox .innertextPar{
+  font-size: 20px;
   color: white;
+  /* animation properties */
+  -moz-transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  
+  -moz-animation: my-animation 30s linear infinite;
+  -webkit-animation: my-animation 30s linear infinite;
+  animation: my-animation 30s linear infinite;
 }
 
-.App-link {
-  color: #61dafb;
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateY(100%); }
+  to { -moz-transform: translateY(-100%); }
 }
 
-@keyframes App-logo-spin {
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateY(100%); }
+  to { -webkit-transform: translateY(-100%); }
+}
+
+@keyframes my-animation {
   from {
-    transform: rotate(0deg);
+    -moz-transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
   }
   to {
-    transform: rotate(360deg);
+    -moz-transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
